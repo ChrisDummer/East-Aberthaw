@@ -1,0 +1,30 @@
+$hotspot-border-radius: 0px;
+$hotspot-opacity: 0.95;
+
+// Tooltips
+$hotspot-tooltip-border-radius: 0px;
+$hotspot-tooltip-padding: get-size(0.5);
+$hotspot-tooltip-width: get-size(8);
+
+// Navigation Hotspots
+$hotspot-bg-color: get-color(secondary, 700);
+$hotspot-bg-color-hover: get-color(secondary, 900);
+$hotspot-sizes: (
+  "root": get-size(3),
+  "xl": get-size(4),
+);
+
+// Modals
+$hotspot-modal-bg-color: get-color(primary);
+$hotspot-modal-hover-bg-color: get-color(primary, 600);
+$hotspot-modal-tooltip-width: get-size(12);
+$hotspot-number-bg-color: get-color(secondary);
+
+// Info
+$hotspot-info-bg-color: get-color(neutral);
+$hotspot-info-hover-bg-color: get-color(neutral, 600);
+$hotspot-info-tooltip-width: get-size(20);
+
+// Hotspot Styling
+$hotspot-style: "outline"; // 'outline' adds a thin stroke with a nice hover effect, 'pointer' adds a little pointer, 'none' is none!
+$hotspot-outline-border: get-size(0.25);

@@ -1,0 +1,18 @@
+.button {
+  &.text-white {
+    color: white !important;
+  }
+  &.mt-1 {
+    margin-top: 1rem !important;
+  }
+  &.has-icon-left {
+    .icon {
+      margin-right: get-size(0.5);
+    }
+  }
+  &.has-icon-right {
+    .icon {
+      margin-left: get-size(0.5);
+    }
+  }
+}

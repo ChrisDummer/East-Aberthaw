@@ -1,0 +1,89 @@
+%status-dot {
+  position: relative;
+  margin-left: 1em;
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    height: 0.4em;
+    width: 0.4em;
+    top: 0.35em;
+    left: -0.75em;
+    border-radius: 50%;
+    .complete & {
+      background-color: $timeline-complete-color;
+    }
+    .upcoming & {
+      background-color: $timeline-upcoming-color;
+    }
+    .in-progress & {
+      background-color: $timeline-progress-color;
+    }
+  }
+}
+.timeline-nav {
+  margin: 0;
+  list-style-type: none;
+  li {
+    padding: $element-padding 0;
+    margin-top: 0;
+    &:first-of-type {
+      padding-top: $element-padding/2;
+    }
+    border-left: $timeline-border-width solid $border-color;
+    &.complete {
+      opacity: 0.4;
+    }
+  }
+  a {
+    @extend %status-dot;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    &::before {
+      width: 0.75em;
+      height: 0.75em;
+      left: -1.5em;
+    }
+    .title {
+      font-weight: normal;
+      display: block;
+    }
+  }
+}
+
+.timeline {
+}
+.timeline-milestone {
+  margin-bottom: 0;
+}
+.timeline-date {
+  margin-top: 0.2em !important;
+  font-size: font-size(0);
+}
+
+.timeline-section {
+  img {
+    margin-bottom: $element-margin;
+  }
+  &:first-of-type {
+    padding-top: 0;
+  }
+  padding: $element-padding 0 $element-padding - $element-margin 0;
+  margin-bottom: $element-margin;
+  border-radius: $modal-border-radius;
+  &.complete {
+    opacity: 0.4;
+  }
+  &.in-progress {
+    background: get-color(neutral, 100);
+    padding-left: $element-padding;
+    padding-right: $element-padding;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.15);
+  }
+}
+.timeline-status {
+  color: get-color(neutral, 500);
+  font-weight: normal;
+  @extend %status-dot;
+}

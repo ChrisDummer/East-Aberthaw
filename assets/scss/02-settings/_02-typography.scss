@@ -1,0 +1,67 @@
+// Type sizes used throughout the project.
+$type-scale: (
+  -2: em($root-size * 0.75),
+  -1: em($root-size * 0.875),
+  0: em($root-size * 1),
+  1: em($root-size * 1.125),
+  2: em($root-size * 1.25),
+  3: em($root-size * 1.5),
+  4: em($root-size * 1.875),
+  5: em($root-size * 2.25),
+  6: em($root-size * 3),
+  7: em($root-size * 3.75),
+  8: em($root-size * 4.5)
+);
+
+// DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH
+$root-font-size: font-size(0);
+// $root-line-height: 1.4;
+
+$font-primary: Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// $font-secondary: $font-primary;
+// $font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+// $font-body: $font-primary;
+// $font-headings: $font-secondary;
+
+// Pass breakpoint values to the following maps to control type size at different breakpoints.
+$font-sizes-h1: (
+  "root": font-size(4),
+  "md": font-size(4),
+);
+
+$font-sizes-h2: (
+  "root": font-size(4),
+  "md": font-size(4),
+);
+
+$font-sizes-h3: (
+  "root": font-size(3),
+  "md": font-size(3),
+);
+
+$font-sizes-h4: (
+  "root": font-size(2),
+  "md": font-size(2),
+);
+
+$font-sizes-h5: (
+  "root": font-size(2),
+  "md": font-size(1),
+);
+
+$font-sizes-h6: (
+  "root": font-size(1),
+  "md": font-size(1),
+);
+
+// $heading-line-height: 1.2;
+
+//$weight-hairline: 100;
+//$weight-thin: 200;
+//$weight-light: 300;
+//$weight-normal: 400;
+//$weight-medium: 500;
+//$weight-semibold: 600;
+$weight-bold: 700;
+//$weight-xbold: 800;
+//$weight-black: 900;

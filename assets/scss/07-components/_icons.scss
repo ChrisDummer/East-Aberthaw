@@ -1,0 +1,30 @@
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  path {
+    fill: inherit;
+  }
+  // Vertically align icon with adjacent text
+  vertical-align: middle;
+  // Align more nicely with capital letters
+  position: relative;
+  p & {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+#{$buttons} {
+  .icon {
+    width: 1.3em;
+    height: 1.3em;
+    margin-left: 0.3em;
+  }
+}
+
+.icon__inline {
+  width: 1.2em !important;
+  height: 1.2em !important;
+  top: -0.1em;
+  //color: get-color(secondary);
+}

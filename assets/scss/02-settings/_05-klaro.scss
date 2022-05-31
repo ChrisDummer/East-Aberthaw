@@ -1,0 +1,70 @@
+/* Border, shadows, ... */
+//$cm-box-shadow-dark-md: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 5px 5px 10px 0 rgba(0, 0, 0, 0.19);
+//$cm-box-shadow-light-sm: 0 2px 5px 0 rgba(0, 0, 0, 0.11);
+//$cm-box-shadow-dark-sm: 0 2px 5px 0 rgba(0, 0, 0, 0.33);
+
+/* Border styles */
+$var-border-radius: 0px;
+//$var-border-style: solid;
+//$var-border-width: 1px;
+
+/* Cookie notice positioning */
+//$var-notice-right: 20px;
+//$var-notice-left: auto;
+//$var-notice-top: auto;
+//$var-notice-bottom: 20px;
+//$var-notice-max-width: 400px;
+//$var-notice-position: fixed;
+
+/* Text colors */
+$var-button-text-color: #fff;
+
+/* Font Families */
+//$var-font-family: inherit;
+//$var-title-font-family: inherit;
+$var-font-size: font-size(-1);
+
+/* White */
+//$var-white1: #fff;
+$var-white2: get-color(neutral, 400);
+$var-white3: get-color(neutral, 100);
+
+// light gray
+$var-light1: get-color(neutral, 200);
+//$var-light2: scale-color($var-light1, $lightness: -20%);
+//$var-light3: scale-color($var-light2, $lightness: -20%);
+
+// dark gray
+$var-dark1: get-color(neutral, 900);
+$var-dark2: get-color(neutral, 700);
+$var-dark3: get-color(neutral);
+
+// blue
+$var-blue1: get-color(primary, 800);
+//$var-blue2: scale-color($var-blue1, $lightness: 20%);
+//$var-blue3: scale-color($var-blue2, $lightness: 20%);
+
+// green
+$var-green1: get-color(success);
+//$var-green2: scale-color($var-green1, $lightness: 20%);
+//$var-green3: scale-color($var-green2, $lightness: 20%);
+
+// red
+$var-red1: get-color(error);
+//$var-red2: scale-color($var-red1, $lightness: 20%);
+//$var-red3: scale-color($var-red2, $lightness: 20%);
+
+/* Spacing */
+$cm-space: (
+  xs: get-size(0.25),
+  sm: get-size(0.5),
+  md: get-size(0.75),
+  lg: get-size(1.5),
+  xl: get-size(3),
+  xxl: get-size(6),
+);
+
+/* Breakpoints */
+//$cm-desktop: 1024px;
+//$cm-mobile: 384px;
+//$cm-tablet: 768px;

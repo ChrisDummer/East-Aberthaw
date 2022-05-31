@@ -1,0 +1,91 @@
+.viewControlButtons {
+  width: 100vw;
+  position: fixed;
+  bottom: calc(#{$sidebar-icon-size-sm} + #{get-size(0.5)});
+  left: 0;
+  display: none;
+  align-items: center;
+  body.autorotate-enabled &,
+  body.fullscreen-enabled &,
+  body.touch &,
+  body.control-buttons-enabled & {
+    // Only show if we have controls
+    display: flex;
+  }
+
+  @include above($sidebar-breakpoint-lg) {
+    align-items: flex-start;
+    bottom: get-size(0.5);
+  }
+  ul {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    @include above($sidebar-breakpoint-lg) {
+      margin-left: get-size(0.25);
+    }
+  }
+  li {
+    margin: get-size(0.5) get-size(0.25) 0 get-size(0.25);
+    overflow: hidden;
+  }
+  .icon {
+    &.on {
+      display: none;
+    }
+    &.off {
+      display: block;
+    }
+  }
+  a {
+    @extend %sidebar-icon;
+    &.enabled .icon {
+      &.on {
+        display: block;
+      }
+      &.off {
+        display: none;
+      }
+    }
+  }
+}
+
+.autorotate-toggle {
+  display: none;
+  body.autorotate-enabled & {
+    display: block;
+  }
+}
+
+.fullscreen-toggle {
+  display: none;
+  body.fullscreen-enabled & {
+    display: block;
+  }
+}
+
+.gyro-toggle {
+  display: none;
+  body.touch & {
+    display: block;
+  }
+}
+
+.control-toggle {
+  display: none;
+  body.control-buttons-enabled & {
+    display: block;
+  }
+}
+
+#toggleDeviceOrientation .enableswipe,
+#toggleDeviceOrientation.gyroenabled .enablegyro {
+  display: none;
+}
+#toggleDeviceOrientation.gyroenabled .enableswipe {
+  display: flex;
+}

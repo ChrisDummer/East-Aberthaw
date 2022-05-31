@@ -1,0 +1,74 @@
+{
+  "name": "ezpz-marzipano-boilerplate",
+  "friendly_name": "EZPZ Marzipano Boilerplate",
+  "version": "1.2.9",
+  "author": {
+    "name": "EPLS",
+    "email": "theteam@epls.design",
+    "url": "https://epls.design"
+  },
+  "description": "Boilerplate framework for developing virtual environments using Marzipano 360 media viewer and Jellyfish UI",
+  "homepage": "https://epls.design",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epls-design/ezpz-marzipano.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/epls-design/ezpz-marzipano/issues"
+  },
+  "private": true,
+  "keywords": [
+    "sass",
+    "scss",
+    "grunt",
+    "framework",
+    "boilerplate",
+    "interactive",
+    "consultation",
+    "3D",
+    "panorama",
+    "360",
+    "360 viewer",
+    "augmented reality",
+    "gyroscope"
+  ],
+  "browserslist": "last 5 versions",
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "cssnano": "^4.1.10",
+    "grunt": "^1.3.0",
+    "grunt-banner": "^0.6.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "^3.1.0",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-eslint": "^22.0.0",
+    "grunt-newer": "^1.3.0",
+    "grunt-php": "^3.0.0",
+    "grunt-phplint": "^0.1.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^3.1.0",
+    "grunt-sass-tilde-importer": "^1.0.2",
+    "grunt-string-replace": "^1.3.1",
+    "grunt-svgstore": "^2.0.0",
+    "load-grunt-tasks": "^5.1.0",
+    "postcss-pxtorem": "^4.0.1",
+    "sass": "^1.45.1",
+    "time-grunt": "^2.0.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^3.2.1",
+    "a11y_accordions": "^3.2.1",
+    "hammerjs": "^2.0.8",
+    "jellyfish-ui": "^3.2.2",
+    "klaro": "^0.7.18",
+    "magnific-popup": "^1.1.0",
+    "stickybits": "^3.7.9",
+    "zurb-twentytwenty": "^0.1.1"
+  }
+}

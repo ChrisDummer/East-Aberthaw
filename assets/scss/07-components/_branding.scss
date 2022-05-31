@@ -1,0 +1,23 @@
+.project-branding {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  display: flex;
+  width: 100vw;
+  .client-logo {
+    width: 150px;
+    @include above(sm) {
+      width: 220px;
+    }
+    margin: 0 auto;
+  }
+  @include above($sidebar-breakpoint-lg) {
+    width: auto;
+    display: block;
+  }
+}
+
+.project-information {
+  margin-bottom: $element-margin * 3;
+}

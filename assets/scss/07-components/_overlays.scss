@@ -1,0 +1,10 @@
+.overlay-iframe {
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+  .mobile & {
+    // Hide on smaller devices
+    display: none !important;
+  }
+}

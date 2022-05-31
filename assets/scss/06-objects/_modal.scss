@@ -1,0 +1,150 @@
+.mfp-bg {
+  background-color: rgba($modal-overlay-color, $modal-overlay-opacity);
+}
+
+// Reset button styles
+button.mfp-arrow,
+button.mfp-close {
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+button.mfp-close {
+  cursor: zoom-out;
+  font-size: font-size(4);
+  @include above(md) {
+    font-size: font-size(5);
+  }
+  color: $modal-close-color;
+  &:hover,
+  &:focus {
+    color: $modal-close-color;
+  }
+}
+.mfp-close-btn-in .modal button.mfp-close {
+  color: $modal-close-color-in;
+  &:hover,
+  &:focus {
+    color: $modal-close-color-in;
+  }
+}
+
+// General Fixes
+.mfp-counter,
+.mfp-title {
+  color: $modal_caption_color;
+}
+.mfp-bottom-bar {
+  margin-top: n(get-size(1.5));
+}
+
+// Make navigation less ugly
+.mfp-arrow-left {
+  &::before {
+    // Remove outer border
+    border-right: 0;
+  }
+}
+.mfp-arrow-right {
+  &::before {
+    // Remove outer border
+    border-left: 0;
+  }
+}
+
+// Fix for scroll issues on mobile devices
+.mfp-wrap,
+.mfp-container,
+.mfp-content {
+  overflow-y: scroll;
+  max-height: 100%;
+  // Hide scrollbars but keep functionality
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  //&::-webkit-scrollbar {
+  //  display: none;
+  //}
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+// Zoom-in and fade modal effect
+.modal-fade {
+  /* overlay at start */
+  &.mfp-bg {
+    opacity: 0;
+    backdrop-filter: blur($modal-overlay-blur);
+    @include smooth(opacity);
+    /* overlay animate in */
+    &.mfp-ready {
+      opacity: $modal-overlay-opacity;
+    }
+    /* overlay animate out */
+    &.mfp-removing {
+      opacity: 0;
+    }
+  }
+  /* content at start */
+  &.mfp-wrap {
+    .mfp-container {
+      opacity: 0;
+      @include smooth(opacity);
+    }
+    .mfp-content {
+      transition: transform 0.4s ease;
+      transform: translateY(40px);
+    }
+    /* content animate in */
+    &.mfp-ready {
+      .mfp-container {
+        opacity: 1;
+      }
+      .mfp-content {
+        transform: translateY(0px);
+      }
+    }
+    /* content animate in */
+    &.mfp-removing {
+      .mfp-container {
+        opacity: 0;
+      }
+      .mfp-content {
+        transform: translateY(80px);
+      }
+    }
+  }
+}
+
+// Inline modals must have class .modal applied
+.modal {
+  position: relative;
+  border-radius: $modal-border-radius;
+  padding: get-size(1);
+  //padding-bottom: get-size(1) - $element-margin;
+  @include above(md) {
+    padding: get-size(2);
+    padding-bottom: get-size(2) - $element-margin;
+  }
+  background: $modal-bg-color;
+  width: 90%;
+  max-width: $modal-max-width;
+  margin: get-size(3) auto;
+  display: block;
+  &__small {
+    max-width: 800px;
+  }
+  &-image {
+    img {
+      width: 100%;
+      margin-bottom: $element-margin;
+    }
+  }
+}
+
+.modal .button-list:last-of-type {
+  margin-bottom: 0;
+}

@@ -1,0 +1,33 @@
+.downloads {
+  td,
+  th {
+    vertical-align: middle;
+  }
+  .button {
+    margin-bottom: 0;
+    float: right;
+  }
+}
+
+.download-thumb {
+  width: get-size(3);
+  @include above(lg) {
+    width: get-size(4);
+  }
+  figure {
+    height: get-size(3);
+    width: get-size(3);
+    @include above(lg) {
+      height: get-size(4);
+      width: get-size(4);
+    }
+    overflow: hidden;
+    display: block;
+  }
+  img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}

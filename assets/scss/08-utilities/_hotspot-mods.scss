@@ -1,0 +1,243 @@
+// Styling
+.hotspot {
+  @if $hotspot-style == "pointer" {
+    z-index: 1;
+    &::after {
+      z-index: -1;
+      content: "";
+      position: relative;
+      display: block;
+      width: 0;
+      height: 0;
+      border: solid transparent;
+      border-color: transparent;
+      border-top-color: $hotspot-bg-color;
+      @include smooth(border-color, opacity);
+      @each $point, $size in $hotspot-sizes {
+        @if $point == "root" {
+          left: calc(50% - #{$size/4});
+          bottom: $size/8;
+          border-width: $size/4;
+        } @else {
+          @include above($point) {
+            left: calc(50% - #{$size/4});
+            bottom: $size/8;
+            border-width: $size/4;
+          }
+        }
+      }
+    }
+    &:hover,
+    &:focus {
+      &::after {
+        border-top-color: $hotspot-bg-color-hover;
+      }
+    }
+  }
+
+  @if $hotspot-style == "outline" {
+    &::after {
+      z-index: -1;
+      @include pseudo;
+      top: 0;
+      left: 0;
+      border-radius: $hotspot-border-radius;
+      box-shadow: 0px 0px 0px 0px $hotspot-bg-color-hover;
+      @include smooth(box-shadow);
+      @each $point, $size in $hotspot-sizes {
+        @if $point == "root" {
+          width: $size + $hotspot-outline-border * 2;
+          height: $size + $hotspot-outline-border * 2;
+          left: n($hotspot-outline-border);
+          top: n($hotspot-outline-border);
+        } @else {
+          @include above($point) {
+            width: $size + $hotspot-outline-border * 2;
+            height: $size + $hotspot-outline-border * 2;
+            left: n($hotspot-outline-border);
+            top: n($hotspot-outline-border);
+          }
+        }
+      }
+    }
+    &:hover,
+    &:focus {
+      &::after {
+        opacity: 1;
+        box-shadow: 0px 0px 0px $hotspot-outline-border $hotspot-bg-color;
+      }
+    }
+  }
+}
+
+.hotspot.is-new {
+  animation: hotspot-pulse 2s infinite;
+  &:hover,
+  &:focus,
+  &.active {
+    animation: hotspot-pulse-active 2s infinite;
+  }
+}
+
+.hotspot.modal-hotspot {
+  background-color: rgba($hotspot-modal-bg-color, $hotspot-opacity);
+  color: white;
+  &:hover,
+  &:focus {
+    background-color: $hotspot-modal-hover-bg-color;
+    color: choose-contrast-color($hotspot-modal-hover-bg-color);
+  }
+  &.is-new {
+    animation: hotspot-modal-pulse 2s infinite;
+    &:hover,
+    &:focus,
+    &.active {
+      animation: hotspot-modal-pulse-active 2s infinite;
+    }
+  }
+  .tooltip-title {
+    background-color: $hotspot-modal-hover-bg-color;
+  }
+  @if $hotspot-style == "pointer" {
+    &::after {
+      border-top-color: rgba($hotspot-modal-bg-color, $hotspot-opacity);
+    }
+    &:hover,
+    &:active {
+      &::after {
+        border-top-color: $hotspot-modal-hover-bg-color;
+      }
+    }
+  }
+  @if $hotspot-style == "outline" {
+    &::after {
+      box-shadow: 0px 0px 0px 0px $hotspot-modal-hover-bg-color;
+    }
+    &:hover,
+    &:focus {
+      &::after {
+        box-shadow: 0px 0px 0px $hotspot-outline-border $hotspot-modal-bg-color;
+      }
+    }
+  }
+}
+
+.hotspot.info-hotspot {
+  background: transparent;
+  color: choose-contrast-color($hotspot-info-bg-color);
+  .info-hotspot-header {
+    background-color: rgba($hotspot-info-bg-color, $hotspot-opacity);
+  }
+  .info-hotspot-close-wrapper {
+    background-color: $hotspot-info-hover-bg-color;
+  }
+  &:hover,
+  &:focus {
+    color: choose-contrast-color($hotspot-info-hover-bg-color);
+    .info-hotspot-header {
+      background-color: $hotspot-info-hover-bg-color;
+    }
+  }
+  &.is-new {
+    animation: hotspot-info-pulse 2s infinite;
+    &:hover,
+    &:focus,
+    &.active,
+    &.visible {
+      animation: none;
+    }
+  }
+  @if $hotspot-style == "pointer" {
+    &::after {
+      border-top-color: rgba($hotspot-info-bg-color, $hotspot-opacity);
+    }
+    &:hover,
+    &:active {
+      &::after {
+        opacity: 0;
+        //border-top-color: $hotspot-info-hover-bg-color;
+      }
+    }
+  }
+  @if $hotspot-style == "outline" {
+    &::after {
+      box-shadow: 0px 0px 0px 0px $hotspot-info-hover-bg-color;
+    }
+    &:hover,
+    &:focus {
+      &::after {
+        box-shadow: 0px 0px 0px $hotspot-outline-border $hotspot-info-bg-color;
+      }
+    }
+  }
+}
+
+@keyframes hotspot-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($hotspot-bg-color, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba($hotspot-bg-color, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($hotspot-bg-color, 0);
+  }
+}
+
+@keyframes hotspot-pulse-active {
+  0% {
+    box-shadow: 0 0 0 0 rgba($hotspot-bg-color-hover, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba($hotspot-bg-color-hover, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($hotspot-bg-color-hover, 0);
+  }
+}
+
+@keyframes hotspot-modal-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($hotspot-modal-bg-color, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba($hotspot-modal-bg-color, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($hotspot-modal-bg-color, 0);
+  }
+}
+
+@keyframes hotspot-modal-pulse-active {
+  0% {
+    box-shadow: 0 0 0 0 rgba($hotspot-modal-hover-bg-color, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba($hotspot-modal-hover-bg-color, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($hotspot-modal-hover-bg-color, 0);
+  }
+}
+
+@keyframes hotspot-info-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($hotspot-info-bg-color, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba($hotspot-info-bg-color, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($hotspot-info-bg-color, 0);
+  }
+}

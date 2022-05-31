@@ -1,0 +1,162 @@
+%sidebar-icon {
+  padding: 12%;
+  width: $sidebar-icon-size-sm;
+  height: $sidebar-icon-size-sm;
+  background-color: $sidebar-icon-bg;
+  color: white;
+  &:hover,
+  &:focus {
+    background-color: $sidebar-icon-bg-hover;
+    color: choose-contrast-color($sidebar-icon-bg-hover);
+  }
+  &.active {
+    background-color: $sidebar-icon-bg-active;
+    color: choose-contrast-color($sidebar-icon-bg-active);
+  }
+  @include smooth(background, color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include above($sidebar-breakpoint-lg) {
+    width: $sidebar-icon-size-lg;
+    height: $sidebar-icon-size-lg;
+  }
+}
+
+%row-then-col {
+  flex-direction: row;
+  @include above($sidebar-breakpoint-lg) {
+    flex-direction: column;
+  }
+}
+
+%col-then-row {
+  flex-direction: column;
+  @include above($sidebar-breakpoint-lg) {
+    flex-direction: row;
+  }
+}
+
+.sidebar {
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: $sidebar-height-sm;
+  bottom: 0;
+  z-index: 100;
+  transform: translateY(calc(#{$sidebar-height-sm} - #{$sidebar-icon-size-sm}));
+  &.active,
+  &.closing {
+    transition: transform 0.7s ease-out;
+  }
+  &.active {
+    transform: translate(0);
+  }
+  @extend %col-then-row;
+  @include above($sidebar-breakpoint-lg) {
+    width: $sidebar-width-lg;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(calc(#{$sidebar-width-lg} - #{$sidebar-icon-size-lg}));
+  }
+  @include above($sidebar-breakpoint-xl) {
+    width: $sidebar-width-xl;
+    transform: translateX(calc(#{$sidebar-width-xl} - #{$sidebar-icon-size-lg}));
+  }
+}
+
+// Icon Nav Tray
+.sidebar-nav {
+  background: $sidebar-nav-bg;
+  backdrop-filter: blur($sidebar-bg-blur);
+  width: 100%;
+  border-bottom: get-size(0.25) solid $sidebar-icon-bg-active;
+  @extend %row-then-col;
+  @include above($sidebar-breakpoint-lg) {
+    border-bottom: 0;
+    border-right: get-size(0.25) solid $sidebar-icon-bg-active;
+    height: 100vh;
+    width: auto;
+  }
+  ul {
+    @extend %row-then-col;
+    height: 100%;
+    margin: 0;
+    flex: 0 0 auto;
+    list-style-type: none;
+    display: flex;
+  }
+  li {
+    margin-top: 0;
+    overflow: hidden;
+  }
+}
+a.widget-icon {
+  @extend %sidebar-icon;
+  .icon {
+    top: 0;
+  }
+}
+.epls-link {
+  margin-left: auto !important;
+  @include above($sidebar-breakpoint-lg) {
+    margin-top: auto !important;
+  }
+  a {
+    @extend %sidebar-icon;
+    background-color: transparent !important;
+    opacity: 0.6;
+    @include smooth(all);
+    &:hover,
+    &:focus {
+      opacity: 1;
+      transform: rotate(360deg);
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+// Content
+.sidebar-content {
+  background: rgba(255, 255, 255, 0.8); // Var
+  backdrop-filter: blur($sidebar-bg-blur);
+  padding: get-size(1.5); // Var?
+  height: 100vh;
+  width: 100%;
+  overflow-x: auto;
+}
+.sidebar-section {
+  display: none;
+}
+
+body.has-active-sidebar {
+  .mfp-wrap,
+  .mfp-bg {
+    height: calc(100vh - #{$sidebar-height-sm}) !important;
+    @include above($sidebar-breakpoint-lg) {
+      height: 100% !important;
+      width: calc(100vw - #{$sidebar-width-lg}) !important;
+    }
+    @include above($sidebar-breakpoint-xl) {
+      width: calc(100vw - #{$sidebar-width-xl}) !important;
+    }
+  }
+}
+
+// On Smaller screens make the modal a bit bigger and the sidebar smaller
+
+body.modal-visible.has-active-sidebar {
+  @include below($sidebar-breakpoint-lg) {
+    .mfp-wrap,
+    .mfp-bg {
+      height: 70vh !important;
+    }
+  }
+  .sidebar {
+    height: 30vh !important;
+  }
+}

@@ -1,0 +1,340 @@
+%hotspot-icon-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+%hotspot-sizes {
+  @each $point, $size in $hotspot-sizes {
+    @if $point == "root" {
+      width: $size;
+      height: $size;
+    } @else {
+      @include above($point) {
+        width: $size;
+        height: $size;
+      }
+    }
+  }
+}
+.hotspot {
+  @extend %hotspot-sizes;
+  @each $point, $size in $hotspot-sizes {
+    @if $point == "root" {
+      margin-left: nh($size); // Helps to center
+      margin-top: nh($size); // Helps to center
+    } @else {
+      @include above($point) {
+        margin-left: nh($size); // Helps to center
+        margin-top: nh($size); // Helps to center
+      }
+    }
+  }
+  z-index: 9999;
+  background-color: rgba($hotspot-bg-color, $hotspot-opacity);
+  border-radius: $hotspot-border-radius;
+  color: choose-contrast-color($hotspot-bg-color);
+  @include smooth(background-color, color);
+  &:hover,
+  &:focus,
+  &.active {
+    background-color: $hotspot-bg-color-hover;
+    color: choose-contrast-color($hotspot-bg-color-hover);
+  }
+  cursor: pointer;
+  .no-touch &:hover {
+    opacity: 1;
+  }
+  &.visible {
+    opacity: 1;
+  }
+  &.active {
+    z-index: 100000;
+  }
+}
+
+.hotspot-icon {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+// Modal Hotspot
+.modal-hotspot {
+  a {
+    @extend %hotspot-icon-wrapper;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+// Link Hotspot
+.link-hotspot .hotspot-icon {
+  @extend %hotspot-icon-wrapper;
+}
+
+/* TOOLTIPS */
+
+%tooltip-title {
+  padding: $hotspot-tooltip-padding;
+  line-height: 1.2;
+  padding: $hotspot-tooltip-padding;
+}
+%tooltip-desc {
+  background-color: white;
+  color: $color-text;
+  font-weight: normal;
+  font-size: font-size(-2);
+  line-height: 1.3;
+  padding: $hotspot-tooltip-padding;
+}
+
+.link-hotspot-tooltip {
+  @extend %tooltip-title;
+  position: absolute;
+  border-radius: $hotspot-tooltip-border-radius;
+  background-color: $hotspot-bg-color-hover;
+  color: choose-contrast-color($hotspot-bg-color-hover);
+  font-weight: $weight-bold;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 100%;
+  z-index: 99;
+  width: $hotspot-tooltip-width;
+  //text-overflow: ellipsis;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  @include smooth(transform, opacity);
+  pointer-events: none; //Prevent tooltip from triggering
+}
+
+.modal-hotspot-tooltip {
+  @extend .link-hotspot-tooltip;
+  padding: 0;
+  &.has-description {
+    width: $hotspot-modal-tooltip-width;
+    .tooltip-title {
+      white-space: normal;
+    }
+  }
+}
+
+.info-hotspot .info-hotspot-text {
+  color: $color-text;
+}
+
+.tooltip-description {
+  @extend %tooltip-desc;
+}
+.tooltip-title {
+  @extend %tooltip-title;
+}
+
+.no-touch .link-hotspot:hover .link-hotspot-tooltip,
+.no-touch .modal-hotspot:hover .modal-hotspot-tooltip {
+  // Show tooltip on hover
+  transform: translate(-50%, -10px);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Fallback mode without pointer-events (IE8-10) */
+.tooltip-fallback .link-hotspot-tooltip {
+  display: none;
+}
+.no-touch .tooltip-fallback .link-hotspot:hover .link-hotspot-tooltip {
+  display: block;
+}
+
+/* Info hotspot */
+
+.info-hotspot {
+  .info-hotspot-header {
+    border-radius: $hotspot-border-radius;
+  }
+  .info-hotspot-icon-wrapper {
+    @extend %hotspot-icon-wrapper;
+    padding: 0px;
+    @extend %hotspot-sizes;
+    .icon {
+      padding: 18%;
+    }
+  }
+}
+
+.desktop.no-touch .info-hotspot .info-hotspot-header:hover,
+.desktop.no-touch .info-hotspot.visible .info-hotspot-header:hover,
+.desktop .info-hotspot.visible .info-hotspot-header {
+  width: $hotspot-info-tooltip-width;
+  border-radius: $hotspot-tooltip-border-radius;
+}
+
+.desktop .info-hotspot.visible .info-hotspot-header {
+  border-bottom-left-radius: 0px;
+}
+
+.info-hotspot .info-hotspot-title-wrapper {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  @each $point, $size in $hotspot-sizes {
+    @if $point == "root" {
+      left: $size;
+    } @else {
+      @include above($point) {
+        left: $size;
+      }
+    }
+  }
+  padding: 0;
+  overflow: hidden;
+  //transition: opacity 0s ease, scale 0s ease;
+  //transition-delay: 0s;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition-delay: 0s;
+  @include smooth(all);
+  @each $point, $size in $hotspot-sizes {
+    @if $point == "root" {
+      left: $size;
+      width: $hotspot-info-tooltip-width - $size * 2;
+    } @else {
+      @include above($point) {
+        left: $size;
+        width: $hotspot-info-tooltip-width - $size * 2;
+      }
+    }
+  }
+}
+
+.desktop .info-hotspot.visible .info-hotspot-title-wrapper,
+.desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
+  transform: scaleX(1);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.info-hotspot .info-hotspot-title-wrapper:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.info-hotspot .info-hotspot-title {
+  display: inline-block;
+  vertical-align: middle;
+  user-select: text;
+  @extend %tooltip-title;
+}
+
+.info-hotspot .info-hotspot-close-wrapper {
+  overflow: hidden;
+  position: absolute;
+  @extend %hotspot-sizes;
+  @each $point, $size in $hotspot-sizes {
+    @if $point == "root" {
+      left: $hotspot-info-tooltip-width - $size;
+    } @else {
+      @include above($point) {
+        left: $hotspot-info-tooltip-width - $size;
+      }
+    }
+  }
+  top: 0;
+  visibility: hidden;
+  transform: perspective(200px) rotateY(90deg);
+  transform-origin: 0 50% 0;
+  transition: transform 0.3s 0.3s, visibility 0s 0.6s;
+  @extend %hotspot-icon-wrapper;
+  border-top-right-radius: $hotspot-tooltip-border-radius;
+}
+
+.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
+  visibility: visible;
+  transform: perspective(200px) rotateY(0deg);
+  transition: transform 0.3s, visibility 0s 0s;
+}
+
+.info-hotspot .info-hotspot-text {
+  position: absolute;
+  width: $hotspot-info-tooltip-width;
+  height: auto;
+  @each $point, $size in $hotspot-sizes {
+    @if $point == "root" {
+      top: $size;
+    } @else {
+      @include above($point) {
+        top: $size;
+      }
+    }
+  }
+  left: 0;
+  @extend %tooltip-desc;
+  border-bottom-right-radius: $hotspot-tooltip-border-radius;
+  border-bottom-left-radius: $hotspot-tooltip-border-radius;
+  visibility: hidden;
+  /* rotate(90deg) causes transition flicker on Firefox 58 */
+  transform: perspective(200px) rotateX(-89.999deg);
+  transform-origin: 50% 0 0;
+  @include smooth(all);
+  user-select: text;
+}
+.desktop .info-hotspot.visible .info-hotspot-text {
+  visibility: visible;
+  transform: perspective(200px) rotateX(0deg);
+  transition: transform 0.3s 0.3s, visibility 0s 0s;
+}
+
+.hotspot-number {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-primary;
+  font-weight: $weight-xbold;
+  font-size: 1.8em;
+  letter-spacing: -0.05em;
+}
+
+.hotspot-number.is-mini {
+  @each $point, $size in $hotspot-sizes {
+    @if $point == "root" {
+      width: h($size);
+      height: h($size);
+      line-height: $size;
+      top: nh(h($size));
+      left: nh(h($size));
+      font-size: $size/4;
+    } @else {
+      @include above($point) {
+        width: h($size);
+        height: h($size);
+        line-height: $size;
+        top: nh(h($size));
+        left: nh(h($size));
+        font-size: $size/4;
+      }
+    }
+  }
+  position: absolute;
+  text-align: center;
+  background-color: $hotspot-number-bg-color;
+  color: choose-contrast-color($hotspot-number-bg-color);
+  border-radius: 0px;
+  @include smooth(transform, background);
+}
+.hotspot {
+  &:hover,
+  &:focus {
+    .hotspot-number.is-mini {
+      background-color: $hotspot-number-bg-color;
+    }
+  }
+}

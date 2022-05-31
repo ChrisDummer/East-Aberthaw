@@ -1,0 +1,18 @@
+// Sidebar Sizing
+$sidebar-height-sm: 60vh;
+$sidebar-width-lg: get-size(24);
+$sidebar-width-xl: get-size(32);
+$sidebar-breakpoint-lg: 800px;
+$sidebar-breakpoint-xl: 1400px;
+
+// Sidebar backgrounds
+$sidebar-nav-bg: rgba(0, 0, 0, 0.8);
+$sidebar-content-bg: rgba(255, 255, 255, 0.9);
+$sidebar-bg-blur: 10px;
+
+// Nav icons
+$sidebar-icon-size-sm: 2.5rem;
+$sidebar-icon-size-lg: get-size(2);
+$sidebar-icon-bg: get-color(primary);
+$sidebar-icon-bg-hover: get-color(primary, 600);
+$sidebar-icon-bg-active: get-color(primary, 600);
