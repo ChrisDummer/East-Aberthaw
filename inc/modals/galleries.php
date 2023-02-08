@@ -9,9 +9,9 @@ $gallery_groups = array(
     'desc' => '',
     'images' => array(
       "Draft Aerial View of Site" => "dist/img/pdf/Draft-Aerial-View-of-Site.png",
-      "Draft Cable Route Plan" => "dist/img/pdf/Draft-Cable-Route-Plan.jpg",
-      "Draft Main Site Plan" => "dist/img/pdf/Draf-Main-Site-Plan.jpg",
-      "LowCarbon map" => "dist/img/pdf/LowCarbon_map.png",
+      "Indicative cable route" => "dist/img/pdf/Draft-Cable-Route-Plan.jpg",
+      "Initial site design (June 2022)" => "dist/img/pdf/Draf-Main-Site-Plan.jpg",
+      "Preferred site design (Spring 2023)" => "dist/img/pdf/LowCarbon_map.png",
 
     )
   ),

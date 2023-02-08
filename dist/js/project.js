@@ -202,8 +202,8 @@ var viewer;
   var scenes = data.scenes.map(function (data) {
     var urlPrefix = "dist/img/tiles";
     var source = Marzipano.ImageUrlSource.fromString(
-      urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg?v=1.2.9", {
-        cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg?v=1.2.9"
+      urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg?v=1.4.9", {
+        cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg?v=1.4.9"
       });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
