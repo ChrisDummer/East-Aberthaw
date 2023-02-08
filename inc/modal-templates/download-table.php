@@ -42,6 +42,4 @@
       ?>
     </tbody>
   </table>
-  <p>To view the Preliminary Environmental Information Report click here: <a target="_blank"
-      href="https://www.dropbox.com/sh/6uoaacw0wlt1kk7/AACKueNzbPA4v2Wu_Wox7uwva?dl=0">PEIR download folder</a> </p>
 </div>
