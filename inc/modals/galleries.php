@@ -8,10 +8,10 @@ $gallery_groups = array(
     'title' => 'Consultation Plan Images',
     'desc' => '',
     'images' => array(
-      "Draft Aerial View of Site" => "dist/img/pdf/Draft-Aerial-View-of-Site.png",
-      "Indicative cable route" => "dist/img/pdf/Draft-Cable-Route-Plan.jpg",
-      "Initial site design (June 2022)" => "dist/img/pdf/Draf-Main-Site-Plan.jpg",
-      "Preferred site design (Spring 2023)" => "dist/img/pdf/LowCarbon_map.png",
+      "Layout Plan" => "dist/img/pdf/layout-plan.jpeg",
+      "Master Plan" => "dist/img/pdf/master-plan.jpeg",
+      "Opportunities and Constraints Plan" => "dist/img/pdf/opp-and-con-plan.jpeg",
+      "Site Location Plan" => "dist/img/pdf/site-plan.jpeg",
 
     )
   ),
