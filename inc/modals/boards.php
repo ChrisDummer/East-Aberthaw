@@ -1,36 +1,44 @@
 <?php
 $boards = array(
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-1",
-    "title" => "Project Overview"
+    "file-name" => "LowCarbon_banners_1",
+    "title" => "Welcome"
   ),
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-2",
-    "title" => "Site Selection and context"
+    "file-name" => "LowCarbon_banners_2",
+    "title" => "Site Location"
   ),
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-3",
-    "title" => "The EIA Process"
+    "file-name" => "LowCarbon_banners_3",
+    "title" => "Site Design Evolution"
   ),
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-4",
-    "title" => "Ecology"
+    "file-name" => "LowCarbon_banners_4",
+    "title" => "Preferred Design"
   ),
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-5",
-    "title" => "Noise and Vibration"
+    "file-name" => "LowCarbon_banners_5",
+    "title" => "Technical assessments"
   ),
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-6",
-    "title" => "Glint and glare"
+    "file-name" => "LowCarbon_banners_6",
+    "title" => "Landscape and visual assessment"
   ),
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-7",
-    "title" => "Construction"
+    "file-name" => "LowCarbon_banners_7",
+    "title" => "Frequently asked questions"
   ),
   array(
-    "file-name" => "22-22126-Oaklands-Farm-panel-8",
-    "title" => "Social Considerations"
+    "file-name" => "LowCarbon_banners_8",
+    "title" => "Construction, operation and decommissioning"
+  ),
+  array(
+    "file-name" => "LowCarbon_banners_9",
+    "title" => "Community Considerations"
+  ),
+  array(
+    "file-name" => "LowCarbon_banners_10",
+    "title" => "Consultation process and next steps"
   ),
 );
 

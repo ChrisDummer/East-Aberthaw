@@ -1,6 +1,10 @@
-<h2>Welcome to Oaklands Farm Solar Park Virtual Consultation</h2>
-<p>We are keen to understand local views about our proposals and welcome feedback as we develop our plans. Please explore the virtual consultation to find out more and provide your feedback. Information is available to view and download from this consultation site, the <a target="_blank" href="https://www.baywa-re.co.uk/en/solar/oaklands-solar-farm">project website</a> and upon request direct to the project team.
-  <br>If you have any queries or difficulties with using this site, please contact us on <a href="mailto: info.oaklands-solarfarm@baywa-re.co.uk">info.oaklands-solarfarm@baywa-re.co.uk</a>
+<h2>Welcome to the East Aberthaw Solar Farm Virtual Consultation</h2>
+<p>We are keen to understand local views about our proposals and welcome feedback as we develop our plans. Please
+  explore the virtual consultation to find out more and provide your feedback. Information is available to view and
+  download from this consultation site and upon request direct to the project team.</p>
+<br>
+<p>If you have any queries or difficulties with using this site, please contact us on <a
+    href="mailto:info@east-aberthaw-solar.co.uk">info@east-aberthaw-solar.co.uk</a></p>
 </p>
 <!--<p>Anchor links need a class of 'scene-link' and a data-scene attr</p>
 <nav class="scene-navigation">
