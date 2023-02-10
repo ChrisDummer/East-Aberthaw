@@ -1,6 +1,10 @@
 <h2>Please provide your feedback</h2>
-<p>This feedback form is designed to be answered alongside the Consultation Summary Document, which can be viewed <a
-    target="_blank" href="/dist/pdf/LowCarbon_feedback-form.pdf">here</a></p>
+<p>We are keen to hear your views on the proposals for East Aberthaw Solar Farm. You can either fill out the form online
+  below, or download a copy of the form <a
+    title="https://east-aberthaw-virtual.com/dist/pdf/LowCarbon_feedback-form.pdf" contenteditable="false"
+    href="https://east-aberthaw-virtual.com/dist/pdf/LowCarbon_feedback-form.pdf">here</a>, and send it back to us. If
+  you have any difficulties, please contact us at <a title="mailto:info@east-aberthaw-solar.co.uk"
+    contenteditable="false" href="mailto:info@east-aberthaw-solar.co.uk">info@east-aberthaw-solar.co.uk</a></p>
 <p>Please note, you can ‘go back’ to previous questions, or ‘skip’ to the next question using the arrows at the bottom
   in the green bar. </p>
 <p>Deadline for comments: 28th March 2023</p>

@@ -8,10 +8,9 @@ $gallery_groups = array(
     'title' => 'Consultation Plan Images',
     'desc' => '',
     'images' => array(
-      "Layout Plan" => "dist/img/pdf/layout-plan.jpeg",
-      "Master Plan" => "dist/img/pdf/master-plan.jpeg",
-      "Opportunities and Constraints Plan" => "dist/img/pdf/opp-and-con-plan.jpeg",
-      "Site Location Plan" => "dist/img/pdf/site-plan.jpeg",
+      "Layout Plan" => "dist/img/pdf/Layout-Plan.jpg",
+      "Preferred site design (Spring 2023)" => "dist/img/pdf/opp-and-con-plan.jpeg",
+      "Site Location Plan including indicative cable route" => "dist/img/pdf/site-plan.jpeg",
 
     )
   ),
